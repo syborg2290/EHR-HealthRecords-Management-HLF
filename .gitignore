@@ -1,0 +1,9 @@
+health.pem
+vendor/
+go.sum
+node_modules/
+package-lock.json
+artifacts/
+crypto-config/
+*.tar.gz
+log.txt

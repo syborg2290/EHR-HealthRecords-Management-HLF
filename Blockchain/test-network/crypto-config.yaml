@@ -1,0 +1,20 @@
+OrdererOrgs:
+  - Name: Orderer
+    Domain: orderer.example.com
+    Specs:
+      - Hostname: orderer.example.com
+        CommonName: "{{.Hostname}}"
+PeerOrgs:
+  - Name: Org1
+    Domain: org1.example.com
+    Specs:
+      - Hostname: peer0.org1.example.com
+        CommonName: "{{.Hostname}}"
+    EnableNodeOUs: true
+
+  - Name: Org2
+    Domain: org2.example.com
+    Specs:
+      - Hostname: peer0.org2.example.com
+        CommonName: "{{.Hostname}}"
+    EnableNodeOUs: true

@@ -1,0 +1,11 @@
+{
+    "index": {
+        "fields": [
+            "docTyp",
+            "updated_time"
+        ]
+    },
+    "ddoc": "OnUpdatedTime",
+    "name": "OnUpdatedTime",
+    "type": "json"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "node-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./api/index.js",
+    "test": "nodemon ./api/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fabric-ca-client": "^2.2.7",
+    "fabric-network": "^2.2.7",
+    "js-yaml": "^3.13.1"
+  }
+}

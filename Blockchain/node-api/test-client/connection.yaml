@@ -1,0 +1,77 @@
+name: testnetwork
+version: 1.0
+x-type: hlfv2
+description: "a gateway for test network"
+
+channels:
+  mychannel:
+    orderers:
+      - orderer.example.com
+    peers:
+      peer0.org1.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer0.org2.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+    chaincodes:
+      - health
+
+organizations:
+  Org1:
+    mspid: Org1MSP
+    peers:
+      - peer0.org1.example.com
+    certificateAuthorities:
+      - ca.org1.example.com
+
+  Org2:
+    mspid: Org2MSP
+    peers:
+      - peer0.org2.example.com
+    certificateAuthorities:
+      - ca.org2.example.com
+
+orderers:
+  orderer.example.com:
+    url: grpc://localhost:7050
+    grpcOptions:
+      ssl-target-name-override: orderer.example.com
+
+peers:
+  peer0.org1.example.com:
+    url: grpc://localhost:7051
+    grpcOptions:
+      ssl-target-name-override: peer0.org1.example.com
+  peer0.org2.example.com:
+    url: grpc://localhost:8051
+    grpcOptions:
+      ssl-target-name-override: peer0.org2.example.com
+
+certificateAuthorities:
+  ca.org1.example.com:
+    url: http://localhost:7054
+    caName: ca.org1.example.com
+    httpOptions:
+      verify: false
+    registrar:
+      - enrollId: admin
+        enrollSecret: adminpw
+    grpcOptions:
+      ssl-target-name-override: ca.org1.example.com
+
+  ca.org2.example.com:
+    url: http://localhost:8054
+    caName: ca.org2.example.com
+    httpOptions:
+      verify: false
+    registrar:
+      - enrollId: admin
+        enrollSecret: adminpw
+    grpcOptions:
+      ssl-target-name-override: ca.org2.example.com
