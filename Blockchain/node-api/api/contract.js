@@ -15,7 +15,9 @@ const contract =  async (type,inputs,callback) =>{
    const gateway = new Gateway()
        try {
          const ccp = yaml.safeLoad(fs.readFileSync(CONNECTION_PROFILE_PATH))
+         console.log(ccp);
          const wallet = await Wallets.newFileSystemWallet(WALLET_PATH)
+         console.log(wallet);
          await gateway.connect(ccp,{wallet:wallet,identity:IDENTITY_NAME,discovery: { enabled: false, asLocalhost: true }})
          const network = await gateway.getNetwork(CHANNEL_NAME)
          const contract = network.getContract(CONTRACT_NAME)
